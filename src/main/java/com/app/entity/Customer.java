@@ -3,7 +3,7 @@ package com.app.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="customer")
+@Table(name="customer_table")
 public class Customer {
 
     @Id //to identify the primary key of a table
