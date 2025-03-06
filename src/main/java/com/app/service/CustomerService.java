@@ -48,4 +48,9 @@ public class CustomerService {
         customerRepository.deleteById(id);
         return null;
     }
+
+    public Customer customerLogin(String name,int tel){
+        return customerRepository.customerLogin(name, tel);
+    }
+
 }

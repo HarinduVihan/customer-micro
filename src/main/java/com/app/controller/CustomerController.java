@@ -37,4 +37,10 @@ public class CustomerController {
     public Customer deleteCustomer(@PathVariable int id){
         return customerService.deleteCustomer(id);
     }
+
+    @GetMapping(path="/customers" ,params ={"name","tel"} )
+    public Customer customerLogin(@RequestParam String name,int tel){
+        return customerService.customerLogin(name,tel);
+    }
+
 }
