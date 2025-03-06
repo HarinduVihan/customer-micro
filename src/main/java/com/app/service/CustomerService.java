@@ -38,6 +38,7 @@ public class CustomerService {
             existingCus.setCustomerName(customer.getCustomerName());
             existingCus.setCustomerAddress(customer.getCustomerAddress());
             existingCus.setCustomerTel(customer.getCustomerTel());
+            customerRepository.save(existingCus);
             return existingCus;
         }
         return customer;
