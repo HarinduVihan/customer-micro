@@ -22,4 +22,19 @@ public class CustomerController {
     public List<Customer> getCustomers(){
         return customerService.getCustomers();
     }
+
+    @GetMapping(path ="/customers/{id}")
+    public Customer getCustomerById(@PathVariable int id){
+        return customerService.getCustomerById(id);
+    }
+
+    @PutMapping(path="/customers/{id}")
+    public Customer updateCustomer(@PathVariable int id,@RequestBody Customer customer){
+        return customerService.updateCustomer(id,customer);
+    }
+
+    @DeleteMapping(path ="/customers/{id}")
+    public Customer deleteCustomer(@PathVariable int id){
+        return customerService.deleteCustomer(id);
+    }
 }
