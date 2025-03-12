@@ -49,8 +49,8 @@ public class CustomerService {
         return null;
     }
 
-    public Customer customerLogin(String name,int tel){
-        return customerRepository.customerLogin(name, tel);
+    public Customer customerLogin(String name, int tel) {
+        return customerRepository.customerLogin(name,tel);
     }
 
 }

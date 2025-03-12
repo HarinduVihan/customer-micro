@@ -3,10 +3,13 @@ package com.app.controller;
 import com.app.entity.Customer;
 import com.app.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 public class CustomerController {
 
@@ -38,9 +41,15 @@ public class CustomerController {
         return customerService.deleteCustomer(id);
     }
 
-    @GetMapping(path="/customers" ,params ={"name","tel"} )
-    public Customer customerLogin(@RequestParam String name,int tel){
-        return customerService.customerLogin(name,tel);
+    //login
+    @GetMapping(path="/customers", params={"name", "tel"})
+    public ResponseEntity<Customer> customerLogin(@RequestParam String name, @RequestParam int tel) {
+        Customer customer = customerService.customerLogin(name, tel);
+        if (customer != null) {
+            return ResponseEntity.ok(customer);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
 }
