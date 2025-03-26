@@ -20,26 +20,32 @@ public class CustomerController {
     public Customer createCustomer(@RequestBody Customer customer){
         return customerService.createCustomer(customer);
     }
+    //localhost:8080/customer-micro/customers
 
     @GetMapping(path = "/customers")
     public List<Customer> getCustomers(){
         return customerService.getCustomers();
     }
+    //localhost:8080/customer-micro/customers
 
     @GetMapping(path ="/customers/{id}")
     public Customer getCustomerById(@PathVariable int id){
         return customerService.getCustomerById(id);
     }
+    //localhost:8080/customer-micro/customers/1
 
     @PutMapping(path="/customers/{id}")
     public Customer updateCustomer(@PathVariable int id,@RequestBody Customer customer){
         return customerService.updateCustomer(id,customer);
     }
+    //localhost:8080/customer-micro/customers/1
+
 
     @DeleteMapping(path ="/customers/{id}")
     public Customer deleteCustomer(@PathVariable int id){
         return customerService.deleteCustomer(id);
     }
+    //localhost:8080/customer-micro/customers/1
 
     //login
     @GetMapping(path="/customers", params={"name", "tel"})
@@ -51,5 +57,6 @@ public class CustomerController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+    //localhost:8080/customer-micro/customers?name=uvindu&tel=1234567890
 
 }
